@@ -1,0 +1,29 @@
+<p class="groen" *ngIf="isLoremIpsum; else andereTemplate">
+  Dit wordt getoond als isLoremIpsum 'true' is!
+</p>
+<ng-template #andereTemplate>
+  <p class="rood">
+    Dit wordt getoond als isLoremIpsum 'false' is!
+  </p>
+</ng-template>
+
+<ul *ngFor="let framework of frameworks">
+  <li>
+    {{framework}}
+  </li>
+</ul>
+
+<p class="groen">eigen tekst</p>
+
+<p [ngClass]="klasses">
+  test
+</p>
+
+<div [ngSwitch]="score">
+  <p *ngSwitchCase="'0'">Oei, je score is 0</p>
+  <p *ngSwitchCase="'50'">Oef, je score is 50: net geslaagd</p>
+  <p *ngSwitchCase="'100'">Super, je score is 100: prachtig gedaan!!</p>
+  <p *ngSwitchDefault>Je score is {{score}}.</p>
+</div>
+
+<button (click)="changeLoremIpsum($event)" type="button">Switch between text</button>
